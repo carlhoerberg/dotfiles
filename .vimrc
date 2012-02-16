@@ -17,6 +17,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'wincent/Command-T'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
+Bundle 'VimClojure'
 
 filetype plugin indent on     " required! 
 
@@ -35,6 +36,8 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set ignorecase
+set smartcase
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
