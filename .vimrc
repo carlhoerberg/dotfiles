@@ -19,6 +19,7 @@ Bundle 'wincent/Command-T'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'VimClojure'
+Bundle 'godlygeek/tabular'
 
 filetype plugin indent on     " required! 
 
@@ -124,7 +125,7 @@ set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 if has("gui_running")
@@ -166,4 +167,12 @@ cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-set wildignore+=*.o,*.obj,.git,output/**,coverage/**
+" ignore certain folders in CommandT
+set wildignore+=*.o,*.obj,.git,output/**,coverage/**,lib
+
+" mappings for Tabularize
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
