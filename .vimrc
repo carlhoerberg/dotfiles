@@ -125,7 +125,7 @@ set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 if has("gui_running")
