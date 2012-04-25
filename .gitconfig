@@ -6,6 +6,7 @@
 [core]
 	quotepath = false
 	editor = /usr/bin/vim
+	autocrlf = true
 [alias]
   st = status
   ci = commit
