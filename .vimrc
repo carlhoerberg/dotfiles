@@ -11,6 +11,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " Bundles
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
@@ -18,6 +19,7 @@ Bundle 'wincent/Command-T'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'VimClojure'
+Bundle 'godlygeek/tabular'
 
 filetype plugin indent on     " required! 
 
@@ -99,23 +101,22 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+nnoremap <leader>o :DiffOrig<CR>
 
-
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set tabstop=2 " a tab is 2 spaces wide
+set shiftwidth=2 " 
+set expandtab " tab = spaces
 set backupdir=~/.vim/tmp
-" colorscheme zellner
 
 au BufNewFile,BufRead *.yajl set filetype=ruby
 au BufNewFile,BufRead *.ru set filetype=ruby
 au BufNewFile,BufRead *.pill set filetype=ruby
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Guardfile set filetype=ruby
-set nobomb
+set nobomb " no utf8 bom
 set scrolloff=5               " keep at least 5 lines above/below
 set sidescrolloff=5           " keep at least 5 lines left/right
-set ttyfast
+set ttyfast " fast tty?
 set shell=bash
 
 set laststatus=2 " Always show the statusline
@@ -124,20 +125,24 @@ set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 if has("gui_running")
+  " no toolbar
   set guioptions-=T
   set guifont=Monaco:h14
-  "colorscheme default
   set transparency=05
   set background=light
   set vb
 endif 
 
+" switch between buffers
 nnoremap <leader><leader> <c-^>
+" clear search highlight
 nnoremap <leader>c :nohlsearch<CR>
+" toogle paste mode
+nnoremap <leader>p :set paste!<CR>
 
 set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
@@ -146,3 +151,28 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
+
+" reselect after indentation
+vnoremap < <gv
+vnoremap > >gv
+" easier windows moving
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Better comand-line editing
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" ignore certain folders in CommandT
+set wildignore+=*.o,*.obj,.git,output/**,coverage/**,lib
+
+" mappings for Tabularize
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
