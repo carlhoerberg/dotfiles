@@ -19,7 +19,9 @@ Bundle 'wincent/Command-T'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'VimClojure'
+Bundle 'slimv.vim'
 Bundle 'godlygeek/tabular'
+"Bundle 'kana/vim-smartinput'
 
 filetype plugin indent on     " required! 
 
@@ -140,7 +142,7 @@ endif
 " switch between buffers
 nnoremap <leader><leader> <c-^>
 " clear search highlight
-nnoremap <leader>c :nohlsearch<CR>
+nnoremap <CR> :nohlsearch<CR>
 " toogle paste mode
 nnoremap <leader>p :set paste!<CR>
 
@@ -168,7 +170,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " ignore certain folders in CommandT
-set wildignore+=*.o,*.obj,.git,output/**,coverage/**,lib
+set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js
 
 " mappings for Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
