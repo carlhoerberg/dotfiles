@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
@@ -13,10 +13,12 @@ PS1='\W$(__git_ps1 " (%s)")\$ '
 
 export NODE_PATH=/usr/local/lib/node_modules
 
+export EDITOR=vim
 #set -o vi
 #export JAVA_HOME="/Library/Java/JavaVirtualMachines/1.7.0u.jdk/Contents/Home"
 #export PATH="$JAVA_HOME/bin:$PATH"
 export JRUBY_OPTS="--1.9 -J-d32 --client -X-C"
+#export JAVA_OPTS="-d32 -client"
 #export TORQUEBOX_HOME=~/code/torquebox/build/assembly/target/stage/torquebox
 export TORQUEBOX_HOME=$HOME/torquebox-current
 export JBOSS_HOME=$TORQUEBOX_HOME/jboss
@@ -56,4 +58,12 @@ function rmb {
       echo "No branches removed."
     fi
   fi
+}
+
+function mkpasswd {
+  LENGTH=${1-64}
+  PREV_LANG=$LANG
+  LANG='C'
+  cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w $LENGTH | head -n 5
+  LANG=$PREV_LANG
 }
