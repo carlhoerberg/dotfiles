@@ -5,6 +5,8 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
+eval "$(rbenv init -)"
+
 #[[ $- == *i* ]]   &&   . ~/.git-prompt.sh
 
 source ~/git-completion.bash
@@ -61,9 +63,15 @@ function rmb {
 }
 
 function mkpasswd {
-  LENGTH=${1-64}
+  LENGTH=${1-32}
   PREV_LANG=$LANG
   LANG='C'
   cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w $LENGTH | head -n 5
   LANG=$PREV_LANG
 }
+
+export JAVA_HOME="$(/usr/libexec/java_home)"
+export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
+export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
+[[ -f ~/.aws ]] && . ~/.aws

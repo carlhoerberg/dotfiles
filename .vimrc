@@ -15,17 +15,26 @@ Bundle 'tpope/vim-markdown'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'wincent/Command-T'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'scrooloose/nerdtree'
-Bundle 'VimClojure'
-Bundle 'slimv.vim'
+"Bundle 'scrooloose/nerdtree'
+"Bundle 'slimv.vim'
 Bundle 'godlygeek/tabular'
+"Bundle 'spolu/dwm.vim'
 "Bundle 'kana/vim-smartinput'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'scrooloose/syntastic'
+"Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'kien/ctrlp.vim'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-classpath'
+Bundle 'tpope/vim-foreplay'
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Lokaltog/vim-easymotion'
 
 filetype plugin indent on     " required! 
 
 let mapleader = ","
+let maplocalleader = ";"
 set rnu " relative line numbers
 
 " allow backspacing over everything in insert mode
@@ -115,6 +124,8 @@ au BufNewFile,BufRead *.ru set filetype=ruby
 au BufNewFile,BufRead *.pill set filetype=ruby
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Guardfile set filetype=ruby
+autocmd FileType go setlocal shiftwidth=4 tabstop=4
+
 set nobomb " no utf8 bom
 set scrolloff=5               " keep at least 5 lines above/below
 set sidescrolloff=5           " keep at least 5 lines left/right
@@ -140,11 +151,9 @@ if has("gui_running")
 endif 
 
 " switch between buffers
-nnoremap <leader><leader> <c-^>
+nnoremap åå <c-^>
 " clear search highlight
-nnoremap <CR> :nohlsearch<CR>
-" toogle paste mode
-nnoremap <leader>p :set paste!<CR>
+nnoremap § :nohlsearch<CR>
 
 set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
@@ -170,11 +179,34 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " ignore certain folders in CommandT
-set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js
+set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js,tmp,target
 
 " mappings for Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+
+nmap <Leader>s :setlocal spell!<CR>
+nmap <Leader>d :set background=dark<CR>
+
+" Automatically determine indenting using fuzzy matching. e.g. the a line starting "(with-"
+" will be indented two spaces.
+let vimclojure#FuzzyIndent=1
+
+" Highlight built-in functions from clojure.core and friends
+let vimclojure#HighlightBuiltins=1
+
+" Highlight functions from contrib
+let vimclojure#HighlightContrib=1
+
+" As new symbols are identified using VimClojure's dynamic features, automatically
+" highlight them.
+let vimclojure#DynamicHighlighting=1
+
+" Color parens so they're easier to match visually
+let vimclojure#ParenRainbow=0
+
+" Yes, I want nailgun support
+let vimclojure#WantNailgun = 1
 

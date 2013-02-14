@@ -6,6 +6,7 @@
 [core]
 	quotepath = false
 	editor = /usr/bin/vim
+	excludesfile = /Users/carl/.gitignore_global
 [alias]
   st = status
   ci = commit
@@ -20,3 +21,5 @@
   ps = push
   pl = pull
 
+[push]
+	default = current
