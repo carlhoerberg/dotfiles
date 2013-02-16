@@ -13,18 +13,11 @@ source ~/git-completion.bash
 #PS1='\u@\h:\W$(__git_ps1 " (%s)")\$ '
 PS1='\W$(__git_ps1 " (%s)")\$ '
 
-export NODE_PATH=/usr/local/lib/node_modules
-
+export HISTFILESIZE=
+export HISTSIZE=
 export EDITOR=vim
-#set -o vi
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/1.7.0u.jdk/Contents/Home"
-#export PATH="$JAVA_HOME/bin:$PATH"
 export JRUBY_OPTS="--1.9 -J-d32 --client -X-C"
 #export JAVA_OPTS="-d32 -client"
-#export TORQUEBOX_HOME=~/code/torquebox/build/assembly/target/stage/torquebox
-export TORQUEBOX_HOME=$HOME/torquebox-current
-export JBOSS_HOME=$TORQUEBOX_HOME/jboss
-export RBXOPT="-X19"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
