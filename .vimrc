@@ -25,11 +25,14 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/syntastic'
 "Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'kien/ctrlp.vim'
-Bundle 'guns/vim-clojure-static'
+"Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-classpath'
-Bundle 'tpope/vim-foreplay'
+Bundle 'tpope/vim-fireplace'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'pangloss/vim-javascript'
+Bundle 'digitaltoad/vim-jade'
 
 filetype plugin indent on     " required! 
 
@@ -68,12 +71,14 @@ imap <c-space> <c-x><c-o>
 set viewoptions=cursor,folds
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
+"au BufReadPre ?* silent loadview
 
 set tabstop=2 " a tab is 2 spaces wide
 set shiftwidth=2 " 
 set expandtab " tab = spaces
 
 autocmd FileType go setlocal shiftwidth=4 tabstop=4
+au BufNewFile,BufRead *.nokogiri set filetype=ruby
 au BufNewFile,BufRead *.yajl set filetype=ruby
 au BufNewFile,BufRead *.ru set filetype=ruby
 au BufNewFile,BufRead *.pill set filetype=ruby
@@ -92,7 +97,11 @@ set autoindent		" always set autoindenting on
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 syntax enable
-set background=light
+if !empty($BACKGROUND)
+  set background="$BACKGROUND"
+else
+  set background=light
+endif
 colorscheme solarized
 
 if has("gui_running")
@@ -126,6 +135,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" jump faster
+nnoremap <c-J> 11j
+nnoremap <c-K> 11k
+
 " Better comand-line editing
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
@@ -133,7 +146,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " ignore certain folders in CommandT
-set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js,tmp,target
+set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js,tmp,target,venv,*.pyc,node_modules
 
 " mappings for Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
@@ -144,23 +157,9 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 nmap <Leader>s :setlocal spell!<CR>
 nmap <Leader>d :set background=dark<CR>
 
-" Automatically determine indenting using fuzzy matching. e.g. the a line starting "(with-"
-" will be indented two spaces.
-let vimclojure#FuzzyIndent=1
-
-" Highlight built-in functions from clojure.core and friends
-let vimclojure#HighlightBuiltins=1
-
-" Highlight functions from contrib
-let vimclojure#HighlightContrib=1
-
-" As new symbols are identified using VimClojure's dynamic features, automatically
-" highlight them.
-let vimclojure#DynamicHighlighting=1
-
-" Color parens so they're easier to match visually
-let vimclojure#ParenRainbow=0
-
-" Yes, I want nailgun support
-let vimclojure#WantNailgun = 1
+" vim clojure static
+let g:clojure_maxlines = 80
+let g:clojure_fuzzy_indent = 1
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
+let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 
