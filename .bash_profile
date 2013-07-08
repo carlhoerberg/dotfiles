@@ -1,4 +1,5 @@
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home/bin/"
+export PATH="$JAVA_HOME:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
@@ -13,6 +14,7 @@ source ~/git-completion.bash
 #PS1='\u@\h:\W$(__git_ps1 " (%s)")\$ '
 PS1='\W$(__git_ps1 " (%s)")\$ '
 
+export CLICOLOR=1
 export HISTFILESIZE=
 export HISTSIZE=
 export EDITOR=vim
@@ -63,8 +65,16 @@ function mkpasswd {
   LANG=$PREV_LANG
 }
 
+exportenv() {
+  while read line; do `declare -x "$line"`; done < .env
+}
+
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
 export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
 export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 [[ -f ~/.aws ]] && . ~/.aws
+
+export GOPATH=$HOME/gocode
+PATH=$PATH:$GOPATH/bin
+
