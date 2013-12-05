@@ -1,14 +1,12 @@
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home/bin/"
-export PATH="$JAVA_HOME:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
+export PATH="~/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home/bin/"
+#export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/bin
+#export PATH="$JAVA_HOME:$PATH"
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-
 eval "$(rbenv init -)"
-
-#[[ $- == *i* ]]   &&   . ~/.git-prompt.sh
 
 source ~/git-completion.bash
 #PS1='\u@\h:\W$(__git_ps1 " (%s)")\$ '
@@ -18,7 +16,7 @@ export CLICOLOR=1
 export HISTFILESIZE=
 export HISTSIZE=
 export EDITOR=vim
-export JRUBY_OPTS="--1.9 -J-d32 --client -X-C"
+export JRUBY_OPTS="-X-C"
 #export JAVA_OPTS="-d32 -client"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -65,16 +63,19 @@ function mkpasswd {
   LANG=$PREV_LANG
 }
 
-exportenv() {
-  while read line; do `declare -x "$line"`; done < .env
-}
-
 export JAVA_HOME="$(/usr/libexec/java_home)"
-export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
-export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
-export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
-[[ -f ~/.aws ]] && . ~/.aws
 
 export GOPATH=$HOME/gocode
 PATH=$PATH:$GOPATH/bin
 
+[[ -f ~/.credentials ]] && . ~/.credentials
+
+function tabname {
+  printf "\e]1;$1\a"
+}
+ 
+function winname {
+  printf "\e]2;$1\a"
+}
+
+export PROMPT_COMMAND='printf "\e]1;${HOSTNAME##*.local} ${PWD##*/}\a"'
