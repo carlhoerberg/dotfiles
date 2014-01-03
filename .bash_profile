@@ -8,7 +8,11 @@ fi
 
 eval "$(rbenv init -)"
 
-source ~/git-completion.bash
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+
+
 #PS1='\u@\h:\W$(__git_ps1 " (%s)")\$ '
 PS1='\W$(__git_ps1 " (%s)")\$ '
 
@@ -18,10 +22,6 @@ export HISTSIZE=
 export EDITOR=vim
 export JRUBY_OPTS="-X-C"
 #export JAVA_OPTS="-d32 -client"
-
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
 
 function rmb {
   current_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
