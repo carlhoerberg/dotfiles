@@ -1,19 +1,30 @@
-export PATH="~/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_25.jdk/Contents/Home/bin/"
-#export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/bin
-#export PATH="$JAVA_HOME:$PATH"
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
-
-eval "$(rbenv init -)"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
+export PATH="~/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
+#export JAVA_HOME="$(/usr/libexec/java_home)"
 
-#PS1='\u@\h:\W$(__git_ps1 " (%s)")\$ '
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export GOPATH=$HOME/gocode
+PATH=$PATH:$GOPATH/bin
+
+[[ -f ~/.credentials ]] && . ~/.credentials
+
+function tabname {
+  printf "\e]1;$1\a"
+}
+ 
+function winname {
+  printf "\e]2;$1\a"
+}
+
+export PROMPT_COMMAND='printf "\e]1;${HOSTNAME##*.local} ${PWD##*/}\a"'
 PS1='\W$(__git_ps1 " (%s)")\$ '
 
 export CLICOLOR=1
@@ -63,19 +74,3 @@ function mkpasswd {
   LANG=$PREV_LANG
 }
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
-
-export GOPATH=$HOME/gocode
-PATH=$PATH:$GOPATH/bin
-
-[[ -f ~/.credentials ]] && . ~/.credentials
-
-function tabname {
-  printf "\e]1;$1\a"
-}
- 
-function winname {
-  printf "\e]2;$1\a"
-}
-
-export PROMPT_COMMAND='printf "\e]1;${HOSTNAME##*.local} ${PWD##*/}\a"'
