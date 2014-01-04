@@ -83,3 +83,12 @@ function mkpasswd {
   LANG=$PREV_LANG
 }
 
+pgurl2env () {
+  local URL=$1
+  local PGUSER=`echo $URL | sed -e 's/.*\/\([^:]*\):.*/\1/'`
+  local PGPASSWORD=`echo $URL | sed -e 's/.*:\([^@]*\)@.*/\1/'`
+  local PGHOST=`echo $URL | sed -e 's/.*@\([^:\/]*\)[:/].*/\1/'`
+  local PGPORT=`echo $URL | sed -e 's/.*:\([0-9]*\)\/.*$/\1/'`
+  local PGDATABASE=`echo $URL | sed -e 's/.*\/\(.*\)$/\1/'`
+  env PGUSER=$PGUSER PGPASSWORD=$PGPASSWORD PGHOST=$PGHOST PGPORT=$PGPORT PGDATABASE=$PGDATABASE $2
+}
