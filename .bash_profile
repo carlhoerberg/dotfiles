@@ -15,7 +15,7 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-export PATH="~/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
+export PATH="~/code/84codes/tools/bin:~/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
 #export JAVA_HOME="$(/usr/libexec/java_home)"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
