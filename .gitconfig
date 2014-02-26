@@ -20,8 +20,7 @@
   lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ps = push
   pl = pull
-
 [push]
 	default = current
-[heroku]
-	account = carl
+[help]
+	autocorrect = 1
