@@ -15,6 +15,8 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
+[ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home`
+
 export PATH="~/code/84codes/tools/bin:~/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
 #export JAVA_HOME="$(/usr/libexec/java_home)"
 
