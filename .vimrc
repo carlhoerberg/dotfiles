@@ -12,7 +12,8 @@ Bundle 'gmarik/vundle'
 " Bundles
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+Bundle 'edkolev/tmuxline.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
@@ -102,7 +103,7 @@ syntax enable
 if !empty($BACKGROUND)
   set background="$BACKGROUND"
 else
-  set background=light
+  set background=dark
 endif
 colorscheme solarized
 
@@ -165,3 +166,4 @@ let g:clojure_fuzzy_indent = 1
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
 let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 
+let g:airline_powerline_fonts = 1
