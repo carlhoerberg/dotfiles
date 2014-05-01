@@ -1,4 +1,4 @@
-{:user 
- {:plugins 
-  [[lein-ancient "0.5.4"]]}}
+{:user
+ {:plugins
+  [[lein-ancient "0.5.5"]]}}
 
