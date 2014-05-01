@@ -94,3 +94,7 @@ pgurl2env () {
   local PGDATABASE=`echo $URL | sed -e 's/.*\/\(.*\)$/\1/'`
   env PGUSER=$PGUSER PGPASSWORD=$PGPASSWORD PGHOST=$PGHOST PGPORT=$PGPORT PGDATABASE=$PGDATABASE $2
 }
+
+function ssht(){
+  ssh $* -t 'tmux a || tmux || /bin/bash'
+}
