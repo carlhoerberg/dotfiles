@@ -10,15 +10,14 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 " Bundles
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'bling/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
 "Bundle 'scrooloose/nerdtree'
-"Bundle 'slimv.vim'
 Bundle 'godlygeek/tabular'
 "Bundle 'spolu/dwm.vim'
 "Bundle 'kana/vim-smartinput'
@@ -26,11 +25,11 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/syntastic'
 "Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-classpath'
 Bundle 'tpope/vim-fireplace'
+Bundle 'guns/vim-clojure-static'
 "Bundle 'Valloric/YouCompleteMe'
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'pangloss/vim-javascript'
 Bundle 'digitaltoad/vim-jade'
@@ -103,7 +102,7 @@ syntax enable
 if !empty($BACKGROUND)
   set background="$BACKGROUND"
 else
-  set background=dark
+  set background=light
 endif
 colorscheme solarized
 
@@ -149,7 +148,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " ignore certain folders in CommandT
-set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js,tmp,target,venv,*.pyc,node_modules
+set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js,tmp,target,venv,*.pyc,node_modules,vendor
 
 " mappings for Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
@@ -167,3 +166,6 @@ let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
 let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 
 let g:airline_powerline_fonts = 1
+let g:tmuxline_theme = 'airline'
+let g:tmuxline_preset = 'nightly_fox'
+
