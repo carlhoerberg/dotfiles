@@ -1,40 +1,39 @@
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" vundle
-filetype off " required
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-" Bundles
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'bling/vim-airline'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-ruby/vim-ruby'
-"Bundle 'scrooloose/nerdtree'
-Bundle 'godlygeek/tabular'
-"Bundle 'spolu/dwm.vim'
-"Bundle 'kana/vim-smartinput'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'scrooloose/syntastic'
-"Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-classpath'
-Bundle 'tpope/vim-fireplace'
-Bundle 'guns/vim-clojure-static'
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'Lokaltog/vim-easymotion'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'pangloss/vim-javascript'
-Bundle 'digitaltoad/vim-jade'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-filetype plugin indent on     " required! 
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+"Plugin 'kchmck/vim-coffee-script'
+Plugin 'vim-ruby/vim-ruby'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'godlygeek/tabular'
+"Plugin 'spolu/dwm.vim'
+"Plugin 'kana/vim-smartinput'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'scrooloose/syntastic'
+"Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Lokaltog/vim-easymotion'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'pangloss/vim-javascript'
+"Plugin 'digitaltoad/vim-jade'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 let mapleader = ","
 let maplocalleader = ";"
