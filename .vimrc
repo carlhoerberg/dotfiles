@@ -74,11 +74,8 @@ set expandtab " tab = spaces
 
 autocmd FileType go setlocal shiftwidth=4 tabstop=4
 au BufNewFile,BufRead *.nokogiri set filetype=ruby
-au BufNewFile,BufRead *.yajl set filetype=ruby
 au BufNewFile,BufRead *.ru set filetype=ruby
-au BufNewFile,BufRead *.pill set filetype=ruby
 au BufNewFile,BufRead Gemfile set filetype=ruby
-au BufNewFile,BufRead Guardfile set filetype=ruby
 
 set nobomb " no utf8 bom
 set scrolloff=5               " keep at least 5 lines above/below
