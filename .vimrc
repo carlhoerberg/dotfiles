@@ -65,13 +65,8 @@ imap <c-space> <c-x><c-o>
 "  set mouse=a
 "endif
 
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-"endif
 set viewoptions=cursor,folds
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
-"au BufReadPre ?* silent loadview
+autocmd BufReadPost * silent! normal! g`"zvzt
 
 set tabstop=2 " a tab is 2 spaces wide
 set shiftwidth=2 " 
