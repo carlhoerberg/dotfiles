@@ -30,6 +30,7 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'pangloss/vim-javascript'
 "Plugin 'digitaltoad/vim-jade'
+Plugin 'wting/rust.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
