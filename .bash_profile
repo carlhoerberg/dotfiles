@@ -99,3 +99,22 @@ function ssht(){
 }
 
 export PGSSLMODE=require
+
+function use-gpg-agent() {
+  GPG_TTY=$(tty)
+  export GPG_TTY
+  if [ -f "${HOME}/.gpg-agent-info" ]; then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+  fi
+}
+
+eval $(ssh-agent)
+
+function cleanup {
+  echo "Killing SSH-Agent"
+  kill -9 $SSH_AGENT_PID
+}
+trap cleanup EXIT
+
