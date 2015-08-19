@@ -118,3 +118,4 @@ function cleanup {
 }
 trap cleanup EXIT
 
+export MONO_GAC_PREFIX="/usr/local"
