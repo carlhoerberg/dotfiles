@@ -109,13 +109,6 @@ function use-gpg-agent() {
     export SSH_AUTH_SOCK
   fi
 }
-
-eval $(ssh-agent)
-
-function cleanup {
-  echo "Killing SSH-Agent"
-  kill -9 $SSH_AGENT_PID
-}
-trap cleanup EXIT
+use-gpg-agent
 
 export MONO_GAC_PREFIX="/usr/local"
