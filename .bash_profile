@@ -119,3 +119,5 @@ epsql() {
 dpsql() {
   psql $(hk env -a $1 | grep DATABASE_URL | awk -F= '{print $2}')
 }
+
+PROMPT_COMMAND='[ -n "$TMUX" ] && tmux rename-window $(basename $(pwd))'
