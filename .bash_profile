@@ -121,3 +121,6 @@ dpsql() {
 }
 
 PROMPT_COMMAND='[ -n "$TMUX" ] && tmux rename-window $(basename $(pwd))'
+
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
