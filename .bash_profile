@@ -112,3 +112,10 @@ function use-gpg-agent() {
 use-gpg-agent
 
 export MONO_GAC_PREFIX="/usr/local"
+
+epsql() {
+  psql $(hk env -a $1 | grep ELEPHANTSQL_URL | awk -F= '{print $2}')
+}
+dpsql() {
+  psql $(hk env -a $1 | grep DATABASE_URL | awk -F= '{print $2}')
+}
