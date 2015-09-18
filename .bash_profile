@@ -98,6 +98,11 @@ function ssht(){
   ssh $* -t 'tmux a || tmux || /bin/bash'
 }
 
+ssh() {
+  [ -n "$TMUX" ] && tmux rename-window "${@: -1}"
+  $(which ssh) $*
+}
+
 export PGSSLMODE=require
 
 function use-gpg-agent() {
