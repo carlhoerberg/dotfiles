@@ -128,4 +128,6 @@ dpsql() {
 PROMPT_COMMAND='[ -n "$TMUX" ] && tmux rename-window $(basename $(pwd))'
 
 [[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+#[[ -z "$TMUX" ]] && exec tmux
+[[ -z "$TMUX" ]] && ([ `tmux list-sessions | wc -l` -eq 0 ] && exec tmux || exec tmux a)
+
