@@ -1,0 +1,62 @@
+# Offense count: 8
+# Configuration parameters: AllowSafeAssignment.
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+Metrics/ClassLength:
+  Max: 100
+
+Metrics/MethodLength:
+  Max: 20
+
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/AlignParameters:
+  Enabled: true
+
+Style/AndOr:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/DotPosition:
+  Enabled: false
+
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+Style/IndentHash:
+  Enabled: true
+
+Style/LeadingCommentSpace:
+  Enabled: true
+
+Style/RedundantReturn:
+  Enabled: true
+
+Style/SignalException:
+  Enabled: true
+
+Style/SingleSpaceBeforeFirstArg:
+  Enabled: true
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/TrailingBlankLines:
+  Enabled: true
+
+Style/TrailingComma:
+  Enabled: false
