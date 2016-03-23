@@ -25,16 +25,6 @@ export PATH="~/code/84codes/tools/bin:~/bin:/usr/local/sbin:/usr/local/bin:/usr/
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 [[ -f ~/.credentials ]] && . ~/.credentials
-
-function tabname {
-  printf "\e]1;$1\a"
-}
- 
-function winname {
-  printf "\e]2;$1\a"
-}
-
-export PROMPT_COMMAND='printf "\e]1;${HOSTNAME##*.local} ${PWD##*/}\a"; update_terminal_cwd'
 PS1='\W$(__git_ps1 " (%s)")\$ '
 
 export CLICOLOR=1
