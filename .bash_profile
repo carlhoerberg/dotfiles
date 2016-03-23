@@ -98,10 +98,21 @@ export PGSSLMODE=require
 function use-gpg-agent() {
   GPG_TTY=$(tty)
   export GPG_TTY
-  if [ -f "${HOME}/.gpg-agent-info" ]; then
+
+  if [ -f "${HOME}/.gpg-agent-info" ]
+  then
     . "${HOME}/.gpg-agent-info"
     export GPG_AGENT_INFO
     export SSH_AUTH_SOCK
+    export SSH_AGENT_PID
+  fi
+  if ! (ps -p $SSH_AGENT_PID 2&>/dev/null)
+  then
+    gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info" > /dev/null
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+    export SSH_AGENT_PID
   fi
 }
 use-gpg-agent
