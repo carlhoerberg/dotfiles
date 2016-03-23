@@ -120,10 +120,10 @@ use-gpg-agent
 export MONO_GAC_PREFIX="/usr/local"
 
 epsql() {
-  psql $(hk env -a ${1:-$(basename $PWD)} | grep ELEPHANTSQL_URL | awk -F= '{print $2}')
+  psql $(heroku config -s -a ${1:-$(basename $PWD)} | grep ELEPHANTSQL_URL | awk -F= '{print $2}' | sed "s/'//g")
 }
 dpsql() {
-  psql $(hk env -a ${1:-$(basename $PWD)} | grep DATABASE_URL | awk -F= '{print $2}')
+  psql $(heroku config -s -a ${1:-$(basename $PWD)} | grep DATABASE_URL | awk -F= '{print $2}' | sed "s/'//g")
 }
 
 PROMPT_COMMAND='[ -n "$TMUX" ] && tmux rename-window $(basename $(pwd))'
