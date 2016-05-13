@@ -1,12 +1,12 @@
 [user]
-	name = Carl Hörberg
-	email = carl.hoerberg@gmail.com
+  name = Carl Hörberg
+  email = carl.hoerberg@gmail.com
 [color]
-	ui = true
+  ui = true
 [core]
-	quotepath = false
-	editor = /usr/bin/vim
-	excludesfile = /Users/carl/.gitignore_global
+  quotepath = false
+  editor = /usr/bin/vim
+  excludesfile = /Users/carl/.gitignore_global
 [alias]
   st = status
   ci = commit
@@ -15,13 +15,13 @@
   df = diff
   log = log -p
   aa = add -A
-  cm = commit -m 
-  cam = commit -am 
+  cm = commit -m
+  cam = commit -am
   cmp = commit -p
   lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ps = push
   pl = pull
 [push]
-	default = current
+  default = current
 [help]
-	autocorrect = 1
+  autocorrect = 1
