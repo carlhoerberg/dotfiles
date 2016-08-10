@@ -49,6 +49,7 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set smartcase
 set rnu " relative line numbers
+set number " display current line number also
 set hlsearch
 
 " Omnicomlete to ctrl-space
@@ -70,7 +71,7 @@ set viewoptions=cursor,folds
 autocmd BufReadPost * silent! normal! g`"zvzt
 
 set tabstop=2 " a tab is 2 spaces wide
-set shiftwidth=2 " 
+set shiftwidth=2
 set expandtab " tab = spaces
 
 autocmd FileType go setlocal shiftwidth=4 tabstop=4
@@ -81,22 +82,18 @@ au BufNewFile,BufRead Gemfile set filetype=ruby
 set nobomb " no utf8 bom
 set scrolloff=5               " keep at least 5 lines above/below
 set sidescrolloff=5           " keep at least 5 lines left/right
-set ttyfast " fast tty?
+set ttyfast
 set shell=bash
 set laststatus=2 " Always show the statusline
-set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
 set autoindent		" always set autoindenting on
 set undofile " tell it to use an undo file
 set undodir=~/.vimundo " set a directory to store the undo history
+set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
+set background=light
 
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 syntax enable
-if !empty($BACKGROUND)
-  set background="$BACKGROUND"
-else
-  set background=light
-endif
 colorscheme solarized
 
 if has("gui_running")
@@ -106,7 +103,7 @@ if has("gui_running")
   set transparency=05
   set background=light
   set vb
-endif 
+endif
 
 " switch between buffers
 nnoremap åå <c-^>
