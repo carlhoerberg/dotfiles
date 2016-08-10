@@ -1,5 +1,6 @@
-# Offense count: 8
-# Configuration parameters: AllowSafeAssignment.
+AllCops:
+  TargetRubyVersion: 2.3
+
 Lint/AssignmentInCondition:
   Enabled: false
 
@@ -15,7 +16,6 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   Max: 20
 
-# Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/AlignParameters:
   Enabled: true
 
