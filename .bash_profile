@@ -15,6 +15,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+complete -C aws_completer aws
+
 [ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 
 export GOPATH=$HOME/go
