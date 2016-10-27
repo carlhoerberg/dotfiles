@@ -89,7 +89,7 @@ set autoindent		" always set autoindenting on
 set undofile " tell it to use an undo file
 set undodir=~/.vimundo " set a directory to store the undo history
 set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
-set background=light
+set background=dark
 
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
@@ -155,7 +155,8 @@ let g:clojure_fuzzy_indent = 1
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
 let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
+let g:tmuxline_powerline_separators = 0
 let g:tmuxline_theme = 'airline'
 let g:tmuxline_preset = 'nightly_fox'
 
