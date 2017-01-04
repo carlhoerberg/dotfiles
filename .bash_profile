@@ -117,7 +117,7 @@ function use-gpg-agent() {
     export SSH_AGENT_PID
   fi
 }
-use-gpg-agent
+#use-gpg-agent
 
 export MONO_GAC_PREFIX="/usr/local"
 
