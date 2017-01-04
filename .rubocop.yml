@@ -16,6 +16,9 @@ Metrics/ClassLength:
 Metrics/MethodLength:
   Max: 20
 
+Metrics/LineLength:
+  Max: 100
+
 Style/AlignParameters:
   Enabled: true
 
@@ -49,7 +52,7 @@ Style/RedundantReturn:
 Style/SignalException:
   Enabled: true
 
-Style/SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: true
 
 Style/StringLiterals:
@@ -58,5 +61,5 @@ Style/StringLiterals:
 Style/TrailingBlankLines:
   Enabled: true
 
-Style/TrailingComma:
+Style/FrozenStringLiteralComment:
   Enabled: false
