@@ -128,6 +128,14 @@ dpsql() {
   psql $(heroku config -s -a ${1:-$(basename $PWD)} | grep DATABASE_URL | awk -F= '{print $2}' | sed "s/'//g")
 }
 
+ppl() {
+  git push origin && git push heroku && heroku logs -t
+}
+
+ptl() {
+  open https://papertrailapp.com/systems/$(basename $PWD)/events
+}
+
 PROMPT_COMMAND='[ -n "$TMUX" ] && tmux rename-window $(basename $(pwd))'
 
 [[ $- != *i* ]] && return
