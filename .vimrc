@@ -140,20 +140,8 @@ cnoremap <C-e> <End>
 " ignore certain folders in CommandT
 set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js,tmp,target,venv,*.pyc,node_modules,vendor
 
-" mappings for Tabularize
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-
 nmap <Leader>s :setlocal spell!<CR>
 nmap <Leader>d :set background=dark<CR>
-
-" vim clojure static
-let g:clojure_maxlines = 80
-let g:clojure_fuzzy_indent = 1
-let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
-let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 
 let g:airline_powerline_fonts = 0
 let g:tmuxline_powerline_separators = 0
@@ -163,4 +151,3 @@ let g:tmuxline_preset = 'nightly_fox'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/carl/.rbenv/shims/rubocop'
 let g:syntastic_javascript_checkers = ['jshint']
-
