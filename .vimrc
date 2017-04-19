@@ -128,6 +128,8 @@ cnoremap <C-e> <End>
 " ignore certain folders in CommandT
 set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js,tmp,target,venv,*.pyc,node_modules,vendor
 
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+
 nmap <Leader>s :setlocal spell!<CR>
 nmap <Leader>d :set background=dark<CR>
 
