@@ -21,6 +21,7 @@
   lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ps = push
   pl = pull
+  plr = pull --rebase
 [push]
   default = current
 [help]
