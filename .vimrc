@@ -143,3 +143,4 @@ let g:tmuxline_preset = 'nightly_fox'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/carl/.rbenv/shims/rubocop'
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_check_on_wq = 0
