@@ -35,6 +35,7 @@ export HISTSIZE=
 export EDITOR=vim
 export JRUBY_OPTS="-X-C"
 #export JAVA_OPTS="-d32 -client"
+export CLASSPATH=".:./lib/*"
 
 function rmb {
   current_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
