@@ -132,10 +132,10 @@ function use-gpg-agent() {
 export MONO_GAC_PREFIX="/usr/local"
 
 epsql() {
-  psql $(heroku config:get ELEPHANTSQL_URL)
+  psql $(heroku config:get ELEPHANTSQL_URL -a ${1:-$(basename $PWD)})
 }
 dpsql() {
-  psql $(heroku config:get DATABASE_URL)
+  psql $(heroku config:get DATABASE_URL -a ${1:-$(basename $PWD)})
 }
 
 ppl() {
