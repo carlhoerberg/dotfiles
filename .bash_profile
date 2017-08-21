@@ -98,6 +98,15 @@ ssh() {
 
 export PGSSLMODE=require
 
+function use-osx-ssh-agent() {
+  if [ ! -f "/tmp/.ssh-agent-info" ]
+  then ssh-agent > /tmp/.ssh-agent-info
+  fi
+  . /tmp/.ssh-agent-info
+  [ -S "$SSH_AUTH_SOCK" ] || ( rm /tmp/.ssh-agent-info && use-osx-ssh-agent )
+}
+use-osx-ssh-agent
+
 function use-gpg-agent() {
   GPG_TTY=$(tty)
   export GPG_TTY
