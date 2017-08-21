@@ -15,11 +15,11 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'jnwhiteh/vim-golang'
+Plugin 'rhysd/vim-crystal'
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'pangloss/vim-javascript'
-Plugin 'rhysd/vim-crystal'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -96,7 +96,9 @@ endif
 " switch between buffers
 nnoremap åå <c-^>
 " clear search highlight
-nnoremap § :nohlsearch<CR>
+nnoremap § :setlocal nohlsearch!<CR>
+" toggle show unprintable characters
+nnoremap ää :set list!<CR>
 
 set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
