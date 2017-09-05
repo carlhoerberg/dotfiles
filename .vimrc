@@ -7,6 +7,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'tpope/vim-sensible'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
@@ -36,27 +37,16 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set smartcase
-set rnu " relative line numbers
+"set rnu " relative line numbers, slow
 set number " display current line number also
 set hlsearch
 
-" Omnicomlete to ctrl-space
-imap <c-space> <c-x><c-o>
-
-" Don't use Ex mode, use Q for formatting
-"map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-"inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-"if has('mouse')
-"  set mouse=a
-"endif
+if has('mouse')
+  set mouse=a
+endif
 
 set viewoptions=cursor,folds
-autocmd BufReadPost * silent! normal! g`"zvzt
+"autocmd BufReadPost * silent! normal! g`"zvzt
 
 set tabstop=2 " a tab is 2 spaces wide
 set shiftwidth=2
@@ -100,6 +90,16 @@ nnoremap § :setlocal nohlsearch!<CR>
 " toggle show unprintable characters
 nnoremap ää :set list!<CR>
 
+nmap <Leader>s :setlocal spell!<CR>
+
+" reselect after indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Better comand-line editing
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
 set winwidth=100
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
@@ -108,32 +108,7 @@ set winheight=5
 set winminheight=5
 set winheight=999
 
-" reselect after indentation
-vnoremap < <gv
-vnoremap > >gv
-" easier windows moving
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" jump faster
-nnoremap <c-J> 11j
-nnoremap <c-K> 11k
-
-" Better comand-line editing
-cnoremap <C-j> <t_kd>
-cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-
-" ignore certain folders in CommandT
-set wildignore+=*.o,*.obj,.git,output,coverage,classes,*.jar,*.png,*.jpg,*.gif,*.min.js,tmp,target,venv,*.pyc,node_modules,vendor
-
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-
-nmap <Leader>s :setlocal spell!<CR>
-nmap <Leader>d :set background=dark<CR>
 
 let g:airline_powerline_fonts = 0
 let g:tmuxline_powerline_separators = 0
@@ -144,3 +119,8 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/carl/.rbenv/shims/rubocop'
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_check_on_wq = 0
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
