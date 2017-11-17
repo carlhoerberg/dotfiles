@@ -11,8 +11,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'jnwhiteh/vim-golang'
@@ -110,15 +109,15 @@ set winheight=999
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
-let g:airline_powerline_fonts = 0
 let g:tmuxline_powerline_separators = 0
-let g:tmuxline_theme = 'airline'
+let g:tmuxline_theme = 'lightline'
 let g:tmuxline_preset = 'nightly_fox'
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = '/Users/carl/.rbenv/shims/rubocop'
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_check_on_wq = 0
+set noshowmode " no relvant with lightline
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
