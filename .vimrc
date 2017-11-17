@@ -17,7 +17,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'rhysd/vim-crystal'
 Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 
@@ -112,11 +112,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_theme = 'lightline'
 let g:tmuxline_preset = 'nightly_fox'
-
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_ruby_rubocop_exec = '/Users/carl/.rbenv/shims/rubocop'
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_check_on_wq = 0
 set noshowmode " no relvant with lightline
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
