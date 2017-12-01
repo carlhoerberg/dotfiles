@@ -8,18 +8,18 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-sensible'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rhubarb'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'rhysd/vim-crystal'
-Plugin 'pangloss/vim-javascript'
 Plugin 'w0rp/ale'
 Plugin 'kien/ctrlp.vim'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'mileszs/ack.vim'
+Plugin 'lifepillar/vim-solarized8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,7 +71,7 @@ set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 syntax enable
-colorscheme solarized
+colorscheme solarized8
 
 if has("gui_running")
   " no toolbar
@@ -99,13 +99,13 @@ vnoremap > >gv
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-set winwidth=100
+set winwidth=80
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=5
-set winminheight=5
-set winheight=999
+"set winheight=5
+"set winminheight=5
+"set winheight=999
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
@@ -117,4 +117,8 @@ set noshowmode " no relvant with lightline
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
+endif
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
 endif
