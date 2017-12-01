@@ -45,7 +45,7 @@ set hlsearch
 "endif
 
 set viewoptions=cursor,folds
-"autocmd BufReadPost * silent! normal! g`"zvzt
+autocmd BufReadPost * silent! normal! g`"zvzt
 
 set tabstop=2 " a tab is 2 spaces wide
 set shiftwidth=2
