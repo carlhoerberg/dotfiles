@@ -69,24 +69,6 @@ function rmb {
   fi
 }
 
-function mkpasswd {
-  LENGTH=${1-32}
-  PREV_LANG=$LANG
-  LANG='C'
-  cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w $LENGTH | head -n 5
-  LANG=$PREV_LANG
-}
-
-pgurl2env () {
-  local URL=$1
-  local PGUSER=`echo $URL | sed -e 's/.*\/\([^:]*\):.*/\1/'`
-  local PGPASSWORD=`echo $URL | sed -e 's/.*:\([^@]*\)@.*/\1/'`
-  local PGHOST=`echo $URL | sed -e 's/.*@\([^:\/]*\)[:/].*/\1/'`
-  local PGPORT=`echo $URL | sed -e 's/.*:\([0-9]*\)\/.*$/\1/'`
-  local PGDATABASE=`echo $URL | sed -e 's/.*\/\(.*\)$/\1/'`
-  env PGUSER=$PGUSER PGPASSWORD=$PGPASSWORD PGHOST=$PGHOST PGPORT=$PGPORT PGDATABASE=$PGDATABASE $2
-}
-
 function ssht(){
   ssh $* -t 'tmux a || tmux || /bin/bash'
 }
@@ -128,6 +110,10 @@ function use-gpg-agent() {
   fi
 }
 #use-gpg-agent
+
+function ql {
+  qlmanage -p $1 > /dev/null 2>&1
+}
 
 export MONO_GAC_PREFIX="/usr/local"
 
