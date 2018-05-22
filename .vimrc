@@ -17,16 +17,21 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'w0rp/ale'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'mileszs/ack.vim'
 Plugin 'lifepillar/vim-solarized8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
 let mapleader = ","
 let maplocalleader = ";"
+
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
