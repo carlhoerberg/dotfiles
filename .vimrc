@@ -70,13 +70,15 @@ set laststatus=2 " Always show the statusline
 set autoindent		" always set autoindenting on
 set undofile " tell it to use an undo file
 set undodir=~/.vimundo " set a directory to store the undo history
-set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
+"set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
 set background=dark
 
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+let g:solarized_termcolors=16
+"let g:solarized_use16 = 1
 syntax enable
-colorscheme solarized8
+colorscheme solarized8_dark_flat
 
 if has("gui_running")
   " no toolbar
