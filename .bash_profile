@@ -19,11 +19,6 @@ complete -C aws_completer aws
 
 [ -x /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home 2> /dev/null`
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export PATH="~/code/84codes/tools/bin:~/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
-#export JAVA_HOME="$(/usr/libexec/java_home)"
-
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 [[ -f ~/.credentials ]] && . ~/.credentials
@@ -33,9 +28,6 @@ export CLICOLOR=1
 export HISTFILESIZE=
 export HISTSIZE=
 export EDITOR=vim
-export JRUBY_OPTS="-X-C"
-#export JAVA_OPTS="-d32 -client"
-export CLASSPATH=".:./lib/*"
 
 function rmb {
   current_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
@@ -69,16 +61,10 @@ function rmb {
   fi
 }
 
-function ssht(){
-  ssh $* -t 'tmux a || tmux || /bin/bash'
-}
-
 ssh() {
   [ -n "$TMUX" ] && tmux rename-window "${@: -1}"
   $(which ssh) $*
 }
-
-export PGSSLMODE=require
 
 function use-osx-ssh-agent() {
   if [ ! -f "/tmp/.ssh-agent-info" ]
@@ -88,34 +74,6 @@ function use-osx-ssh-agent() {
   [ -S "$SSH_AUTH_SOCK" ] || ( rm /tmp/.ssh-agent-info && use-osx-ssh-agent )
 }
 use-osx-ssh-agent
-
-function use-gpg-agent() {
-  GPG_TTY=$(tty)
-  export GPG_TTY
-
-  if [ -f "${HOME}/.gpg-agent-info" ]
-  then
-    . "${HOME}/.gpg-agent-info"
-    export GPG_AGENT_INFO
-    export SSH_AUTH_SOCK
-    export SSH_AGENT_PID
-  fi
-  if ! (ps -p $SSH_AGENT_PID 2&>/dev/null)
-  then
-    gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info" > /dev/null
-    . "${HOME}/.gpg-agent-info"
-    export GPG_AGENT_INFO
-    export SSH_AUTH_SOCK
-    export SSH_AGENT_PID
-  fi
-}
-#use-gpg-agent
-
-function ql {
-  qlmanage -p $1 > /dev/null 2>&1
-}
-
-export MONO_GAC_PREFIX="/usr/local"
 
 epsql() {
   psql $(heroku config:get ELEPHANTSQL_URL -a ${1:-$(basename $PWD)})
@@ -133,6 +91,11 @@ ptl() {
 }
 
 PROMPT_COMMAND='[ -n "$TMUX" ] && tmux rename-window $(basename $(pwd))'
+
+export LLVM_CONFIG=/usr/local/Cellar/llvm@6/6.0.1_1/bin/llvm-config
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$PATH:~/code/tools/bin"
 
 [[ $- != *i* ]] && return
 #[[ -z "$TMUX" ]] && exec tmux
