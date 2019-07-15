@@ -24,5 +24,6 @@
   plr = pull --rebase
 [push]
   default = current
+	followTags = true
 [help]
   autocorrect = 1
