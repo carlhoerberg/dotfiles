@@ -32,6 +32,7 @@ endif
 let mapleader = ","
 let maplocalleader = ";"
 
+set encoding=utf8
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -78,7 +79,7 @@ let g:solarized_termtrans=1
 let g:solarized_termcolors=16
 "let g:solarized_use16 = 1
 syntax enable
-colorscheme solarized8_dark_flat
+colorscheme solarized8_flat
 
 if has("gui_running")
   " no toolbar
