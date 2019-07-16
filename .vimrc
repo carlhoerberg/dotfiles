@@ -46,9 +46,9 @@ set smartcase
 set number " display current line number also
 set hlsearch
 
-"if has('mouse')
-"  set mouse=a
-"endif
+if has('mouse')
+  set mouse=a
+endif
 
 set viewoptions=cursor,folds
 autocmd BufReadPost * silent! normal! g`"zvzt
