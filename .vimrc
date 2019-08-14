@@ -74,9 +74,9 @@ set undodir=~/.vimundo " set a directory to store the undo history
 set t_Co=256 " Explicitly tell vim that the terminal has 256 colors
 set background=dark
 
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-let g:solarized_termcolors=16
+"let g:solarized_termcolors=16
 "let g:solarized_use16 = 1
 syntax enable
 colorscheme solarized8_flat
@@ -84,9 +84,9 @@ colorscheme solarized8_flat
 if has("gui_running")
   " no toolbar
   set guioptions-=T
-  set guifont=Monaco:h14
-  set transparency=05
-  set background=light
+  "set guifont=Monaco:h14
+  "set transparency=05
+  set background=dark
   set vb
 endif
 
