@@ -102,3 +102,10 @@ export LANG=en_US.UTF-8
 eval "$(rbenv init -)"
 
 ppl() { git push && git push heroku master && heroku logs -t }
+ptl() { open https://papertrailapp.com/systems/$(basename $PWD) }
+epsql() { psql $(heroku config:get ELEPHANTSQL_URL -a ${1:-$(basename $PWD)}) }
+ssh() {
+  [ -n "$TMUX" ] && tmux rename-window "${@: -1}"
+  /usr/local/bin/ssh "$@"
+  [ -n "$TMUX" ] && tmux setw automatic-rename
+}
