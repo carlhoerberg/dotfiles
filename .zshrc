@@ -106,6 +106,6 @@ ptl() { open https://papertrailapp.com/systems/$(basename $PWD) }
 epsql() { psql $(heroku config:get ELEPHANTSQL_URL -a ${1:-$(basename $PWD)}) }
 ssh() {
   [ -n "$TMUX" ] && tmux rename-window "${@: -1}"
-  /usr/local/bin/ssh "$@"
+  command ssh $@
   [ -n "$TMUX" ] && tmux setw automatic-rename
 }
