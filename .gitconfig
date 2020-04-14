@@ -27,3 +27,5 @@
 	followTags = true
 [help]
   autocorrect = 1
+[diff]
+	algorithm = histogram
