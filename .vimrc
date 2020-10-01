@@ -58,7 +58,7 @@ set tabstop=2 " a tab is 2 spaces wide
 set shiftwidth=2
 set expandtab " tab = spaces
 
-autocmd FileType go setlocal shiftwidth=4 tabstop=4
+autocmd FileType go setlocal tabstop=4 noexpandtab
 au BufNewFile,BufRead *.nokogiri set filetype=ruby
 au BufNewFile,BufRead *.ru set filetype=ruby
 au BufNewFile,BufRead Gemfile set filetype=ruby
@@ -67,7 +67,6 @@ set nobomb " no utf8 bom
 set scrolloff=5               " keep at least 5 lines above/below
 set sidescrolloff=5           " keep at least 5 lines left/right
 set ttyfast
-set shell=bash
 set laststatus=2 " Always show the statusline
 set autoindent		" always set autoindenting on
 set undofile " tell it to use an undo file
