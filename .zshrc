@@ -80,6 +80,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
+export EDITOR=vim
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -102,7 +103,7 @@ export LANG=en_US.UTF-8
 eval "$(rbenv init -)"
 
 ppl() { git push && git push heroku master && heroku logs -t }
-ptl() { open https://papertrailapp.com/systems/$(basename $PWD) }
+ptl() { open_command https://papertrailapp.com/systems/$(basename $PWD) }
 epsql() { psql $(heroku config:get ELEPHANTSQL_URL -a ${1:-$(basename $PWD)}) }
 ssh() {
   [ -n "$TMUX" ] && tmux rename-window "${@: -1}"
