@@ -20,6 +20,7 @@ Plugin 'w0rp/ale'
 Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'mileszs/ack.vim'
 Plugin 'lifepillar/vim-solarized8'
+Plugin 'vim-crystal/vim-crystal'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
