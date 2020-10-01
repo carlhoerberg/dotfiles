@@ -15,6 +15,7 @@
   df = diff
   log = log -p
   aa = add -A
+  ca = commit -a
   cm = commit -m
   cam = commit -am
   cmp = commit -p
