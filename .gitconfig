@@ -7,6 +7,7 @@
   quotepath = false
   editor = /usr/bin/vim
   excludesfile = /Users/carl/.gitignore_global
+	attributesfile = /home/carl/.gitattributes
 [alias]
   st = status
   ci = commit
