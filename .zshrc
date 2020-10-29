@@ -110,3 +110,8 @@ ssh() {
   command ssh $@
   [ -n "$TMUX" ] && tmux setw automatic-rename
 }
+
+# in fedora only vimx got clipboard support
+alias vim=vimx
+# fedora has podman as in place replacement for docker
+alias docker=podman
