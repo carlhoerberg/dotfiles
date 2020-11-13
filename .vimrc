@@ -84,8 +84,6 @@ colorscheme solarized8_flat
 if has("gui_running")
   " no toolbar
   set guioptions-=T
-  "set guifont=Monaco:h14
-  "set transparency=05
   set background=dark
   set vb
 endif
@@ -108,12 +106,6 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 set winwidth=80
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
-"set winheight=5
-"set winminheight=5
-"set winheight=999
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
@@ -125,8 +117,4 @@ set noshowmode " no relvant with lightline
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
-endif
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
 endif
