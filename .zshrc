@@ -115,3 +115,5 @@ ssh() {
 alias vim=vimx
 # fedora has podman as in place replacement for docker
 alias docker=podman
+# scp is being deprecated
+alias scp='rsync --progress'
