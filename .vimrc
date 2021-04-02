@@ -21,13 +21,16 @@ Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'mileszs/ack.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'vim-crystal/vim-crystal'
+Plugin 'nfnty/vim-nftables'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+let g:javascript_plugin_jsdoc = 1
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep
 endif
 
 let mapleader = ","
