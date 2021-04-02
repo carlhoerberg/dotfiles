@@ -36,5 +36,6 @@
 	rebase = true
 [commit]
 	verbose = true
+	gpgsign = false
 [init]
 	defaultBranch = main
