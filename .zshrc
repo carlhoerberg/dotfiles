@@ -102,7 +102,7 @@ export EDITOR=vim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(rbenv init -)"
 
-ppl() { git push && git push heroku master && heroku logs -t }
+ppl() { git push && git push heroku && heroku logs -t }
 ptl() { open_command https://papertrailapp.com/systems/$(basename $PWD) }
 epsql() { psql $(heroku config:get ELEPHANTSQL_URL -a ${1:-$(basename $PWD)}) }
 ssh() {
@@ -117,3 +117,5 @@ alias vim=vimx
 alias docker=podman
 # scp is being deprecated
 alias scp='rsync --progress'
+# node's colors doesn't go well with my terminal colors
+export NODE_DISABLE_COLORS=1
