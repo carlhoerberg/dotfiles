@@ -16,7 +16,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'mileszs/ack.vim'
 Plugin 'lifepillar/vim-solarized8'
@@ -28,6 +28,16 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 let g:javascript_plugin_jsdoc = 1
+let g:crystal_auto_format = 1
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 if executable('rg')
   set grepprg=rg\ --vimgrep
