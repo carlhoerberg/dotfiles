@@ -145,7 +145,13 @@ rmb() {
 alias vim=vimx
 # fedora has podman as in place replacement for docker
 alias docker=podman
-# scp is being deprecated
-alias scp='rsync --progress'
 # node's colors doesn't go well with my terminal colors
 export NODE_DISABLE_COLORS=1
+# interpret color codes
+alias less="less -r"
+# java
+export JAVA_HOME=/usr/lib/jvm/jre/
+# go
+export GOPATH=~/go
+# remove duplicate in $PATH
+eval "typeset -U path"
