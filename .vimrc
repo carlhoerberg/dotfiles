@@ -118,7 +118,7 @@ vnoremap > >gv
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-set winwidth=80
+set winwidth=100
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
