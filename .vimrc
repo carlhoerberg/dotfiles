@@ -99,6 +99,8 @@ if has("gui_running")
   set guioptions-=T
   set background=dark
   set vb
+  set guifont=JetBrains\ Mono\ 16
+  set lines=60 columns=180
 endif
 
 " switch between buffers
