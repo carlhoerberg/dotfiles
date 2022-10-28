@@ -1,6 +1,8 @@
 [user]
   name = Carl Hörberg
-  email = carl.hoerberg@gmail.com
+  email = carl@84codes.com
+  ;email = carl.hoerberg@gmail.com
+  ;signingkey = 3DE43B6BA13D05C9
 [color]
   ui = true
 [core]
@@ -40,4 +42,4 @@
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
+  helper = !/usr/bin/gh auth git-credential
