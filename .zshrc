@@ -100,7 +100,13 @@ export EDITOR=vim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(rbenv init -)"
+source <(kubectl completion zsh)
+eval "$(op completion zsh)"; compdef _op op
+eval "$(gh completion -s zsh)"; compdef _gh gh
+eval "$(heroku autocomplete:script zsh)"
+source /usr/share/google-cloud-sdk/completion.zsh.inc
 
+pgl() { git push && sleep 2 && gh run watch && heroku logs -t }
 ppl() { git push && git push heroku && heroku logs -t }
 ptl() { open_command https://papertrailapp.com/systems/$(basename $PWD) }
 epsql() { psql $(heroku config:get ELEPHANTSQL_URL -a ${1:-$(basename $PWD)}) }
@@ -141,6 +147,9 @@ rmb() {
   fi
 }
 
+# shortcuts
+alias k=kubectl
+alias h=heroku
 # in fedora only vimx got clipboard support
 alias vim=vimx
 # fedora has podman as in place replacement for docker
